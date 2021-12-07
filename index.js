@@ -1,3 +1,4 @@
+//easy tree traversal
 var preorderTraversal = function(root) {
     if(!root) return [];
     const stack = [root];
@@ -12,4 +13,18 @@ var preorderTraversal = function(root) {
         
     }
     return result
+};
+//recursive version
+var preorderTraversal = function(root) {
+    if(!root) return [];
+    const result = []
+    
+    const preorder = (node) => {
+        if(!node) return null;
+        result.push(node.val);
+        if(node.left) preorder(node.left);
+        if(node.right) preorder(node.right);
+    }
+    preorder(root)
+    return result;
 };
